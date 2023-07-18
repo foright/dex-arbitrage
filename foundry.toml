@@ -1,0 +1,30 @@
+[profile.default]
+src = 'contracts'
+out = 'artifacts'
+libs = ["node_modules", "lib"]
+solc_version = '0.8.15'
+auto_detect_solc = false
+optimizer_runs = 1_000
+gas_reports = ["*"]
+remappings = [
+    '@aave/=node_modules/@aave/',
+    '@balancer-labs/=node_modules/@balancer-labs/',
+    '@dydxprotocol/=node_modules/@dydxprotocol/',
+    '@ensdomains/=node_modules/@ensdomains/',
+    '@openzeppelin/=node_modules/@openzeppelin/',
+    '@uniswap/=node_modules/@uniswap/',
+    'base64-sol/=node_modules/base64-sol/',
+    'canonical-weth/=node_modules/canonical-weth/',
+    'eth-gas-reporter/=node_modules/eth-gas-reporter/',
+    'hardhat-deploy/=node_modules/hardhat-deploy/',
+    'hardhat/=node_modules/hardhat/',
+    'openzeppelin-solidity/=node_modules/openzeppelin-solidity/',
+]
+
+[fuzz]
+runs = 1_000
+
+[profile.fuzz.ci]
+runs = 100_000
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
